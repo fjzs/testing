@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class CalculatorTest {
 
     @Test
-    public void add_PositiveNumbers_ReturnsCorrectResult() {
+    public void sumar_PositiveNumbers_ReturnsCorrectResult() {
         // Arrange
         Calculator calculator = new Calculator();
         int a = 3;
@@ -29,14 +29,14 @@ public class CalculatorTest {
         int expected = 7;
 
         // Act
-        int actual = calculator.add(a, b);
+        int actual = calculator.sumar(a, b);
 
         // Assert
         String errorMessage = a + " + " + b + " should be " + expected;
         assertEquals(expected, actual, errorMessage);
     }
     @Test
-    public void add_NegativeNumbers_ReturnsCorrectResult() {
+    public void sumar_NegativeNumbers_ReturnsCorrectResult() {
         // Arrange
         Calculator calculator = new Calculator();
         int a = -3;
@@ -44,7 +44,7 @@ public class CalculatorTest {
         int expected = a + b;
 
         // Act
-        int actual = calculator.add(a, b);
+        int actual = calculator.sumar(a, b);
 
         // Assert
         String errorMessage = a + " + " + b + " should be " + expected;
@@ -52,14 +52,14 @@ public class CalculatorTest {
     }
 
     @Test
-    public void add_Commutative_ReturnsSameResult() {
+    public void sumar_Commutative_ReturnsSameResult() {
         // Arrange
         Calculator calculator = new Calculator();
         int a = 3;
         int b = 4;
 
         // Act
-        boolean isCommutative = calculator.add(a, b) == calculator.add(b, a);
+        boolean isCommutative = calculator.sumar(a, b) == calculator.sumar(b, a);
 
         // Assert
         String errorMessage = a + " + " + b + " should be commutative";
@@ -75,7 +75,7 @@ public class CalculatorTest {
         int expected = 0;
 
         // Act
-        int actual = calculator.add(a, b);
+        int actual = calculator.sumar(a, b);
 
         // Assert
         String errorMessage = a + " + " + b + " should be " + expected;

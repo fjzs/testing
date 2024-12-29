@@ -11,20 +11,27 @@ public class Calculator {
     public Calculator() {}
 
     /**
-     * Sums two integers and returns the result.
-     * This operation is commutative, therefore
-     * add(a,b) == add(b,a).
+     * Suma 2 enteros y retorna el resultado.
      *
-     * @param a integer
-     * @param b integer
-     * @return the result of the operation
+     * (1) Esta operacion es conmutativa, por lo que
+     * sumar(x,y) == sumar(x,y).
+     *
+     * (2) Esta operacion cumple con la identidad,
+     * es decir sumar 0 a x es x: sumar(x,0) == x
+     *
+     * (3) Si el resultado es mas grande que un entero,
+     * retorna un ArithmeticException
+     *
+     * @param x integer
+     * @param y integer
+     * @return el resultado de la suma.
      */
-    public int add(int a, int b) {
-        return a + b;
-        // Other potential implementations:
-        // return Integer.sum(a, b);
-        // return Math.addExact(a, b);
-        // return (int)Double.sum(a, b);
+    public int sumar(int x, int y) {
+        long result = (long) x + y;
+        if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
+            throw new ArithmeticException();
+        }
+        return (int) result;
     }
 
     /**

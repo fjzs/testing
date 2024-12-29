@@ -9,7 +9,7 @@ public class Main {
         Calculator myCalculator = new Calculator();
         int x = 1;
         int y = 3;
-        int sum = myCalculator.add(x,y);
+        int sum = myCalculator.sumar(x,y);
         long multiplication = myCalculator.multiply(x,y);
         double division = myCalculator.divide(x, y);
         System.out.println(x + " + " + y + " = " + sum);
