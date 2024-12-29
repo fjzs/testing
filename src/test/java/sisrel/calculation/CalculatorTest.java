@@ -3,8 +3,6 @@ package sisrel.calculation;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Source: https://www.testingdocs.com/junit-calculator-test-case-example/
@@ -21,140 +19,48 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class CalculatorTest {
 
     @Test
-    public void sumar_PositiveNumbers_ReturnsCorrectResult() {
+    public void sumar_DosEnterosResultadoCabeEnInteger_RetornaResultadoCorrecto() {
         // Arrange
-        Calculator calculator = new Calculator();
-        int a = 3;
-        int b = 4;
-        int expected = 7;
+        Calculator calculadora = new Calculator();
+        int x = 3;
+        int y = 4;
+        int valorEsperado = 7;
 
         // Act
-        int actual = calculator.sumar(a, b);
+        int valorObtenido = calculadora.sumar(x, y);
 
         // Assert
-        String errorMessage = a + " + " + b + " should be " + expected;
-        assertEquals(expected, actual, errorMessage);
-    }
-    @Test
-    public void sumar_NegativeNumbers_ReturnsCorrectResult() {
-        // Arrange
-        Calculator calculator = new Calculator();
-        int a = -3;
-        int b = -4;
-        int expected = a + b;
-
-        // Act
-        int actual = calculator.sumar(a, b);
-
-        // Assert
-        String errorMessage = a + " + " + b + " should be " + expected;
-        assertEquals(expected, actual, errorMessage);
+        String errorMessage = x + " + " + y + " deberia ser " + valorEsperado;
+        assertEquals(valorEsperado, valorObtenido, errorMessage);
     }
 
     @Test
-    public void sumar_Commutative_ReturnsSameResult() {
+    public void sumar_ConmutatividadEnSuma_ResultadoEsConmutativo() {
         // Arrange
-        Calculator calculator = new Calculator();
-        int a = 3;
-        int b = 4;
+        Calculator calculadora = new Calculator();
+        int x = 3;
+        int y = 4;
 
         // Act
-        boolean isCommutative = calculator.sumar(a, b) == calculator.sumar(b, a);
+        int resultado1 = calculadora.sumar(x, y);
+        int resultado2 = calculadora.sumar(y, x);
 
         // Assert
-        String errorMessage = a + " + " + b + " should be commutative";
-        assertTrue(isCommutative, errorMessage);
+        String errorMessage = x + " + " + y + " deberia ser conmutativo";
+        assertEquals(resultado1, resultado2, errorMessage);
     }
 
     @Test
-    public void add_Zeros_ReturnsCorrectResult() {
+    public void sumar_Identidad_RetornaMismoValorDeInput() {
         // Arrange
-        Calculator calculator = new Calculator();
-        int a = 0;
-        int b = 0;
-        int expected = 0;
+        Calculator calculadora = new Calculator();
+        int x = 3;
 
         // Act
-        int actual = calculator.sumar(a, b);
+        int valorObtenido = calculadora.sumar(x, 0);
 
         // Assert
-        String errorMessage = a + " + " + b + " should be " + expected;
-        assertEquals(expected, actual, errorMessage);
-    }
-
-    @Test
-    public void multiply_PositiveNumbers_ReturnsCorrectResult() {
-        // Arrange
-        Calculator calculator = new Calculator();
-        int a = 10;
-        int b = 25;
-        long expected = 250;
-
-        // Act
-        long actual = calculator.multiply(a, b);
-
-        // Assert
-        String errorMessage = a + " x " + b + " should be " + expected;
-        assertEquals(expected, actual, errorMessage);
-    }
-
-    @Test
-    public void multiply_ZeroZero_ReturnsZero() {
-        // Arrange
-        Calculator calculator = new Calculator();
-        int a = 0;
-        int b = 0;
-        long expected = 0;
-
-        // Act
-        long actual = calculator.multiply(a, b);
-
-        // Assert
-        String errorMessage = a + " x " + b + " should be " + expected;
-        assertEquals(expected, actual, errorMessage);
-    }
-
-    @Test
-    public void multiply_NegativeNumbers_ReturnsCorrectResult() {
-        // Arrange
-        Calculator calculator = new Calculator();
-        int a = -5;
-        int b = -6;
-        long expected = 30;
-
-        // Act
-        long actual = calculator.multiply(a, b);
-
-        // Assert
-        String errorMessage = a + " x " + b + " should be " + expected;
-        assertEquals(expected, actual, errorMessage);
-    }
-
-    @Test
-    public void divide_PositiveNumbers_ReturnsCorrectResult() {
-        // Arrange
-        Calculator calculator = new Calculator();
-        int a = 1;
-        int b = 3;
-        double expected = (double) (a) / (double) (b);
-
-        // Act
-        double actual = calculator.divide(a, b);
-
-        // Assert (when comparing doubles you need a threshold).
-        String errorMessage = a + " x " + b + " should be " + expected;
-        double threshold = 0.0000001;
-        assertEquals(expected, actual, threshold, errorMessage);
-    }
-
-    @Test
-    public void divide_DenominatorZero_RaisesIllegalArgumentException() {
-        // Arrange
-        Calculator calculator = new Calculator();
-        int a = 15;
-        int b = 0;
-
-        // Assert
-        assertThrows(IllegalArgumentException.class, () -> calculator.divide(a, b));
+        String errorMessage = x + " + 0 deberia ser " + x;
+        assertEquals(valorObtenido, x, errorMessage);
     }
 }

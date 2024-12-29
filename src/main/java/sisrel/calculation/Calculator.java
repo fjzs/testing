@@ -12,13 +12,13 @@ public class Calculator {
 
     /**
      * Suma 2 enteros y retorna el resultado.
-     *
-     * (1) Esta operacion es conmutativa, por lo que
+     * <p>
+     * (1) Esta operacion es conmutativa, por lo que:
      * sumar(x,y) == sumar(x,y).
-     *
+     * <p>
      * (2) Esta operacion cumple con la identidad,
      * es decir sumar 0 a x es x: sumar(x,0) == x
-     *
+     * <p>
      * (3) Si el resultado es mas grande que un entero,
      * retorna un ArithmeticException
      *
@@ -32,30 +32,5 @@ public class Calculator {
             throw new ArithmeticException();
         }
         return (int) result;
-    }
-
-    /**
-     * Multiplies a and b. This operation is commutative, therefore
-     * multiply(a,b) == multiply(b,a)
-     * @param a integer
-     * @param b integer
-     * @return the result of the operation (long)
-     */
-    public long multiply(int a, int b) {
-        return (long) a * b;
-    }
-
-    /**
-     * Performs the operation a / b with a tolerance of 0.000001.
-     * @param a this is the numerator
-     * @param b this is the denominator
-     * @return the result of the operation
-     * @throws IllegalArgumentException if denominator is zero.
-     */
-    public double divide(int a, int b) {
-        if (b == 0) {
-            throw new IllegalArgumentException("Denominator cannot be zero");
-        }
-        return (double) a / (double) b;
     }
 }
