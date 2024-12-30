@@ -13,14 +13,14 @@ public class Calculator {
     /**
      * Suma 2 enteros y retorna el resultado.
      * <p>
-     * (1) Esta operacion es conmutativa, por lo que:
-     * sumar(x,y) == sumar(x,y).
+     * (1) Esta operacion es conmutativa, es decir:
+     * sumar(x,y) == sumar(y,x).
      * <p>
      * (2) Esta operacion cumple con la identidad,
-     * es decir sumar 0 a x es x: sumar(x,0) == x
+     * es decir: sumar(x,0) == x
      * <p>
-     * (3) Si el resultado es mas grande que un entero,
-     * retorna un ArithmeticException
+     * (3) Si el resultado no cabe en un Integer,
+     * lanza un ArithmeticException
      *
      * @param x integer
      * @param y integer
