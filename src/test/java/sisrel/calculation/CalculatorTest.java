@@ -3,9 +3,10 @@ package sisrel.calculation;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Source: https://www.testingdocs.com/junit-calculator-test-case-example/
+ * Source:
  * https://junit.org/junit5/docs/current/user-guide/#overview
  *
  * Name your tests with this pattern: [MethodUnderTest]_[Scenario]_[ExpectedResult]
@@ -51,7 +52,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void sumar_Identidad_RetornaMismoValorDeInput() {
+    public void sumar_SumaCero_RetornaMismoValorDeInput() {
         // Arrange
         Calculator calculadora = new Calculator();
         int x = 3;
@@ -62,5 +63,31 @@ public class CalculatorTest {
         // Assert
         String errorMessage = x + " + 0 deberia ser " + x;
         assertEquals(valorObtenido, x, errorMessage);
+    }
+
+    @Test
+    void sumar_SumaEsMayorQueMaxInteger_LanzaArithmeticException() {
+        // Arrange
+        Calculator calculadora = new Calculator();
+
+        // Act and Assert
+        assertThrows(
+                ArithmeticException.class,
+                () -> calculadora.sumar(Integer.MAX_VALUE, 1),
+                "Expected an ArithmeticException for overflow"
+        );
+    }
+
+    @Test
+    void sumar_SumaEsMenorQueMinInteger_LanzaArithmeticException() {
+        // Arrange
+        Calculator calculadora = new Calculator();
+
+        // Act and Assert
+        assertThrows(
+                ArithmeticException.class,
+                () -> calculadora.sumar(Integer.MIN_VALUE, -1),
+                "Expected an ArithmeticException for underflow"
+        );
     }
 }
