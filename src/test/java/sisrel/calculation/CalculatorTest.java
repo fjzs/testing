@@ -8,13 +8,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 /**
  * Source:
  * https://junit.org/junit5/docs/current/user-guide/#overview
- *
+ * <p>
  * Name your tests with this pattern: [MethodUnderTest]_[Scenario]_[ExpectedResult]
- *
+ * <p>
  * Implement your tests with the AAA pattern:
- * (1) Arrange: define the objects involved
- * (2) Act: apply on them a single behavior of the unit
- * (3) Assert: check the conditions to meet
+ * <p>(1) Arrange: define the objects involved
+ * <p>(2) Act: apply on them a single behavior of the unit
+ * <p>(3) Assert: check the conditions to meet
  */
 
 public class CalculatorTest {

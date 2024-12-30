@@ -29,7 +29,7 @@ public class Calculator {
     public int sumar(int x, int y) {
         long result = (long) x + y;
         if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
-            throw new ArithmeticException();
+            throw new ArithmeticException(x + " + " + y + " es mayor a lo permitido por un Integer");
         }
         return (int) result;
     }
